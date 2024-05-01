@@ -36,21 +36,19 @@ function App() {
   }, [todos]);
   return (
     <Todoprovider value={{ addTodo, deleteTodo, updateTodo, toggleCompleted, todos }}>
-      <div className="1">
-        <div className="114">
-          <h1 className="11">Manage Your Todos</h1>
-          <div className="111">
-            {/* Todo form goes here */}
-            <TodoForm></TodoForm>
-          </div>
-          <div className="">
-            {/*Loop and Add TodoItem here */}
-            {todos.map((todo) => (
-              <div key={todo.id}>
-                <TodoItem todo={todo} />
-              </div>
-            ))}
-          </div>
+      <div className="Todoform">
+        <h1>Manage Your Todos</h1>
+        <div className=" ">
+          {/* Todo form goes here */}
+          <TodoForm></TodoForm>
+        </div>
+        <div className="">
+          {/*Loop and Add TodoItem here */}
+          {todos.map((todo) => (
+            <div key={todo.id}>
+              <TodoItem todo={todo} />
+            </div>
+          ))}
         </div>
       </div>
     </Todoprovider>
