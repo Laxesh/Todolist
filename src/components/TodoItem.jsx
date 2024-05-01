@@ -1,7 +1,8 @@
+import React, { useState } from "react"; //
 import { useTodo } from "../Contexts/TodoContext";
 
-export default function TodoItem({ todo }) {
-  const { toggleCompleted, updateTodo, deleteTodo } = useTodo;
+const TodoItem = ({ todo }) => {
+  const { toggleCompleted, updateTodo, deleteTodo } = useTodo();
   const [todoEdit, setTodoEdit] = useState(false);
   const [todoMsg, setTodoMsg] = useState(todo.todo);
 
@@ -10,33 +11,42 @@ export default function TodoItem({ todo }) {
     setTodoEdit(false);
   };
 
-  const ToggleComplete = () => {
+  const toggleComplete = () => {
     toggleCompleted(todo.id);
   };
-}
-return (
-  <>
-    <input type="checkbox" className="" checked={todo.completed} onChange={ToggleComplete} />
 
-    <input type="text" className="" value={todoMsg} onChange={(e) => setTodoMsg(e.target.value)} readOnly={!todoEdit} />
+  return (
+    <>
+      <input type="checkbox" className="" checked={todo.completed} onChange={toggleComplete} />
 
-    {/* Edit, Save Button */}
-    <button
-      className=""
-      onClick={() => {
-        if (todo.completed) return;
+      <input
+        type="text"
+        className=""
+        value={todoMsg}
+        onChange={(e) => setTodoMsg(e.target.value)}
+        readOnly={!todoEdit}
+      />
 
-        if (todoEdit) {
-          editTodo();
-        } else setTodoEdit((prev) => !prev);
-      }}
-      disabled={todo.completed}
-    >
-      {todoEdit ? "Save" : "Edit"}
-    </button>
-    {/* Delete Todo Button */}
-    <button className="" onClick={() => deleteTodo(todo.id)}>
-      X
-    </button>
-  </>
-);
+      {/* Edit, Save Button */}
+      <button
+        className=""
+        onClick={() => {
+          if (todo.completed) return;
+
+          if (todoEdit) {
+            editTodo();
+          } else setTodoEdit((prev) => !prev);
+        }}
+        disabled={todo.completed}
+      >
+        {todoEdit ? "Save" : "Edit"}
+      </button>
+      {/* Delete Todo Button */}
+      <button className="" onClick={() => deleteTodo(todo.id)}>
+        X
+      </button>
+    </>
+  );
+};
+
+export default TodoItem;
