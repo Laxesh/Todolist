@@ -1,5 +1,6 @@
 import React, { useState } from "react"; //
 import { useTodo } from "../Contexts/TodoContext";
+import sty from "./TodoItem.module.css";
 
 const TodoItem = ({ todo }) => {
   const { toggleCompleted, updateTodo, deleteTodo } = useTodo();
@@ -16,12 +17,12 @@ const TodoItem = ({ todo }) => {
   };
 
   return (
-    <>
-      <input type="checkbox" className="" checked={todo.completed} onChange={toggleComplete} />
+    <div className={sty.item}>
+      <input type="checkbox" className={sty.check} checked={todo.completed} onChange={toggleComplete} />
 
       <input
         type="text"
-        className=""
+        className={sty.input}
         value={todoMsg}
         onChange={(e) => setTodoMsg(e.target.value)}
         readOnly={!todoEdit}
@@ -29,7 +30,7 @@ const TodoItem = ({ todo }) => {
 
       {/* Edit, Save Button */}
       <button
-        className=""
+        className={sty.button}
         onClick={() => {
           if (todo.completed) return;
 
@@ -42,10 +43,10 @@ const TodoItem = ({ todo }) => {
         {todoEdit ? "Save" : "Edit"}
       </button>
       {/* Delete Todo Button */}
-      <button className="" onClick={() => deleteTodo(todo.id)}>
+      <button className={sty.button} onClick={() => deleteTodo(todo.id)}>
         X
       </button>
-    </>
+    </div>
   );
 };
 

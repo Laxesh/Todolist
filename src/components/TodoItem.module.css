@@ -1,0 +1,30 @@
+.item {
+  display: flex;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  gap: 15px;
+  background-color: #c6e9a7;
+  box-shadow: white;
+  color: black;
+  width: 560px;
+  margin-top: 10px;
+}
+.input {
+  background: transparent;
+  border: black;
+  outline: none;
+  width: 400px;
+  height: 25px;
+  font-size: medium;
+}
+
+.button {
+  display: inline-flex;
+  width: 40px;
+  border-radius: 5px;
+  font-size: small;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(227, 227, 227, 0.851);
+}
