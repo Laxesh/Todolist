@@ -19,13 +19,7 @@ export default function TodoForm() {
   return (
     <>
       <form className="" onSubmit={add}>
-        <input
-          type="text"
-          placeholder="Write Todo..."
-          className={style.input}
-          value={todo}
-          onChange={(e) => setTodo(e.target.value)}
-        />
+        <input type="text" className={style.input} value={todo} onChange={(e) => setTodo(e.target.value)} />
         <button type="submit" className={style.add}>
           Add
         </button>

@@ -26,6 +26,10 @@ const TodoItem = ({ todo }) => {
         value={todoMsg}
         onChange={(e) => setTodoMsg(e.target.value)}
         readOnly={!todoEdit}
+        style={{
+          border: todoEdit ? "1px solid black" : "transparent",
+          textDecoration: todo.completed ? "line-through" : "none",
+        }}
       />
 
       {/* Edit, Save Button */}
